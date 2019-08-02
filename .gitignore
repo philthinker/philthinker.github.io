@@ -1,13 +1,11 @@
-_asset_bundler_cache
-_site
-.bundle
 .DS_Store
-.jekyll-metadata
+
+# Compiled site
+_site
+
+# Sass garbage
 .sass-cache
-*.gem
-*.sublime-project
-*.sublime-workspace
-codekit-config.json
-Gemfile.lock
-node_modules
-npm-debug.log*
+
+# Bundler
+.bundle/
+vendor/
