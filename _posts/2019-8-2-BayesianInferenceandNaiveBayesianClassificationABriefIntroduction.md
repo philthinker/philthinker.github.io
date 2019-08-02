@@ -1,4 +1,17 @@
-﻿Thanks Cameron Davidson-Pilon for the great work of *Bayesian Methods for Hackers: Probabilistic programming and Bayesian Inference*.
+﻿---
+layout: post
+title: "Bayesian Inference and Naive Bayesian Classification: A Brief Introduction"       # Title of the post
+description: Bayesian Inference       # Description of the post, used for Facebook Opengraph & Twitter
+headline: Bayesian Inference and Naive Bayesian Classification      # Will appear in bold letters on top of the post
+modified: 2019-8-2                 # Date
+category: Machine Learning
+tags: [Bayesian]
+image: 
+comments: true
+mathjax: true
+---
+
+Thanks Cameron Davidson-Pilon for the great work of *Bayesian Methods for Hackers: Probabilistic programming and Bayesian Inference*.
 
 [TOC]
 

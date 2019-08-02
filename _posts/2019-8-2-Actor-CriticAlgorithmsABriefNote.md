@@ -1,10 +1,23 @@
-﻿#Actor - Critic
+﻿---
+layout: post
+title: "Actor-Critic Algorithms: A Brief Note"       # Title of the post
+description: AC in RL       # Description of the post, used for Facebook Opengraph & Twitter
+headline: Actor-Critic algorithm      # Will appear in bold letters on top of the post
+modified: 2019-8-2                 # Date
+category: Reinforcement Learning
+tags: []
+image: 
+comments: true
+mathjax: true
+---
+
+# Actor - Critic
 A class of algorithms that precede Q-Learning and SARSA are **actor - critic** methods. Refer to 
 
 > V. Konda and J. Tsitsiklis: *Actor -critic algorithms.* SIAM Journal on Control and Optimization 42(4), 1143-1166 (2003).
 
 for more details. We first give some basics:
-##Policy Gradient Methods & Policy Gradient Theorem
+## Policy Gradient Methods & Policy Gradient Theorem
 We consider methods for learning the policy weights based on the gradient of some performance measure $\eta(\theta)$ with respect to the policy weights. These methods maximize performance, so their updates approximate gradient ascent in $\eta$:
 $$\theta_{t+1}=\theta_{t}+\alpha\widehat{\nabla\eta(\theta_{t})}$$
 All methods that follow this general schema are known as *policy gradient methods*, whether or not they also learn an approximate value function. A value function may still be used to learn the policy weight $\theta\in\mathbb{R}^{n}$, but may not be required for action selection. 
@@ -17,7 +30,7 @@ The **policy gradient theorem** is that
 $$\nabla\eta(\theta)=\sum_{s}d_{\pi}(s)\sum_{a}q_{\pi}(s,a)\nabla_{\theta}\pi(a|s,\theta)$$
 where the gradients in all cases are the column vectors of partial derivatives with respect to the components of $\theta$, $\pi$ denotes the policy corresponding to weights vector $\theta$ and the distribution $d_\pi$ here is the expected number of time steps $t$ on which $S_{t}=s$ in a randomly generated episode starting in $s_{0}$ and following $\pi$ and the dynamics of the MDP.
 
-##REINFORCE
+## REINFORCE
 Now we have an exact expression for updating gradient. We need some way of sampling whose expectation equals or approximates this expression. Notice that the right-hand side is a sum over states weighted by how often the states occurs under the target policy $\pi$ weighted again by $\gamma$ times how many steps it takes to get to those states. If we just follow $\pi$ we will encounter states in these proportions, which we can then weighted by $\gamma^{t}$ to preserve the expected value:
 $$\nabla\eta(\theta)=\mathbb{E}_{\pi}\left[ \gamma^{t}\sum_{a}q_{\pi}(S_{t},a)\nabla_{\theta}\pi(a|S_{t},\theta) \right]$$
 Then we approximate a sum over actions:
@@ -36,7 +49,7 @@ the baseline can be any function, even a random variable, as long as it does not
 $$\theta_{t+1}=\theta_{t}+\alpha(G_{t}-b(S_{t}))\nabla_{\theta}\log\pi(A_{t}|S_{t},\theta)$$
 The baseline leaves the expected value of the update unchanged, but it can have a large effect on its variance. One natural choice is an estimate of the state value $\hat{v}(S_{t},w)$.
 
-##Actor-Critic
+## Actor-Critic
 Methods that learn approximations to both policy and value functions are called *actor-critic methods*. REINFORCE with baseline methods use value functions only as a baseline, not a critic, i.e. not for bootstrapping. This is a useful distinction, for only through bootstrapping do we introduce bias and an asymptotic dependence on the quality of the function approximation.
 
 Consider one-step action-critic methods. The main appeal of one step methods is that they are fully online and incremental such as TD(0), SARSA(0) and Q-Learning. One-step actor-critic methods replace the full return of REINFORCE with the one-step return:
@@ -60,7 +73,7 @@ Full algorithm can be formulated as follows:
 		 13. $I=\gamma I$
 		 14. $S=S'$
 
-##Parameterization for Continuous Actions
+## Parameterization for Continuous Actions
 Policy based methods offer practical ways of dealing with large actions spaces, even continuous spaces. All of the notes above are dealing with discrete actions, nevertheless, we begin with continuous ones from now on.
 
 Instead of computing learned probabilities for each of many actions, we learn the statistics of the probability distributions. Take the Gaussian distribution for example. The actions set might be the real numbers with actions chosen from a Gaussian distribution:
@@ -75,5 +88,5 @@ The standard deviation must always be positive and is better approximated as the
 $$\sigma(s,\theta)=\exp\left({\theta^{\sigma}}^{T}\phi(s)\right)$$\
 where $\phi(s)$ is a basis function of some type. With these definitions, all the algorithms described above can be applied to learn to select real-valued actions.
 
-#Summary
+# Summary
 Actor -Critic, which is a branch of TD methods, keeps a separate policy independent of the value function. The policy is called the *actor* and the value function is called the *critic*. An advantage of having a separate policy representation is that if there are many actions, or when the action space is continuous, there is no need to consider all actions' Q-values in order to select one of them. A second advantage is that they can learn stochastic policies naturally. Furthermore, a prior knowledge about policy constraints can be used. 
