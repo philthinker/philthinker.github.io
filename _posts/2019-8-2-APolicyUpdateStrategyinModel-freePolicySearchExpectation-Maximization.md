@@ -8,7 +8,7 @@ category: Reinforcement Learning
 tags: [EM]
 image: fox.jpg
 comments: true
-mathjax: Katex
+mathjax: true
 ---
 
 
