@@ -43,10 +43,10 @@ jekyll-archives:
 # Owner/author information
 author:
   name:           Haopeng Hu
-  picture:        Cute.jpg
+  picture:        fox.jpg
   email:          philthinker@sina.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    A yuoung boy.
+  description:    A young boy.
   # Social networking links used in footer. Update and remove as you like.
   twitter:
   facebook:

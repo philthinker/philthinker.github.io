@@ -2,13 +2,13 @@
 layout: post
 title: "A Policy Update Strategy in Model-free Policy Search_ Expectation-Maximization"       # Title of the post
 description: A Policy Update Strategy in Model-free Policy Search_ Expectation-Maximization       # Description of the post, used for Facebook Opengraph & Twitter
-headline: A Policy Update Strategy in Model-free Policy Search_ Expectation-Maximization      # Will appear in bold letters on top of the post
+headline: Policy Update Strategy in EM Style      # Will appear in bold letters on top of the post
 modified: 2019-8-2                 # Date
 category: Reinforcement Learning
 tags: [EM]
-image: 
+image: fox.jpg
 comments: true
-mathjax:
+mathjax: Katex
 ---
 
 
