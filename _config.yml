@@ -1,9 +1,9 @@
-title:            Haopeng loves Robots
-description:      Welcome to the world of AI robots
-logo:             omikron.png
+title:            Haopeng Love Robots
+description:      Let's Play with Intelligent Robots!
+logo:             ali.png
 disqus_shortname: philthinker
 # Assign a default image for your site's header and footer
-default_bg:       BingWallPaper-2019-07-29.jpg
+default_bg:       fox.jpg
 search:           true
 share:            true
 # Read Time is a calculator tp provide post read-time based on word count. Usage is recommended.
@@ -43,10 +43,10 @@ jekyll-archives:
 # Owner/author information
 author:
   name:           Haopeng Hu
-  picture:        fox.jpg
+  picture:        cute.jpg
   email:          philthinker@sina.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    A young boy.
+  description:    A young boy full of passion.
   # Social networking links used in footer. Update and remove as you like.
   twitter:
   facebook:
@@ -55,7 +55,7 @@ author:
   instagram:
   tumblr:
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:    "http://plus.google.com/123123123123132123"
+  google_plus:    
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:
