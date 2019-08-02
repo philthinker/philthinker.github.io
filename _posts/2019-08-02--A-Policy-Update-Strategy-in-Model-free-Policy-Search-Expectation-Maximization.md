@@ -1,4 +1,11 @@
-﻿[TOC]
+﻿---
+layout: post
+title:  "A Policy Update Strategy in Model-Free Policy Search - Expectation-Maximization"
+date:   2019-08-02 12:43:19 +0800
+categories: jekyll update
+---
+
+[TOC]
 
 #Expectation-Maximization Algorithm
 [Policy gradient](http://blog.csdn.net/philthinker/article/details/77452891) methods require the user to specify the learning rate which can be problematic and often results in an unstable learning process or slow convergence. By formualting policy search as an **inference problem** with **latent variables** and using the EM algorithm to infer a new policy, this problem can be avoided since no learning rate is required.
