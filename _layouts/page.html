@@ -1,36 +1,62 @@
----
-layout: default
-class: 'page-template'
----
-<!-- < default -->
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    {% include head.html %}
+</head>
 
-<!-- This is a page template. A page outputs content just like any other post, and has all the same -->
-    <!-- attributes by default, but you can also customise it to behave differently if you prefer.  -->
+<body class="home-template" itemscope itemtype="http://schema.org/WebPage">
 
-<!-- Everything inside the #post tags pulls data from the page -->
-<!-- #post -->
+    {% include header.html %}
 
-<header class="main-header post-head {% if page.cover %}" style="background-image: url({{ site.baseurl }}{{ page.cover }}){% else %}no-cover{% endif %}">
-    <nav class="main-nav {% if page.cover %}overlay{% endif %} clearfix">
-        {% if page.logo %}<a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
-        {% if page.navigation %}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {% endif %}
-    </nav>
-</header>
+    <div id="main" class="content" role="main" itemprop="mainContentOfPage">
+        <div class="container">
+            <div class="row">
+                <article class="page col-md-8 col-md-offset-2">
+		            {% if site.wpm %}
+		                {% assign readtime = page.content | strip_html | number_of_words | append: '.0' | divided_by:site.wpm %}
+		            {% else %}
+		                {% assign readtime = page.content | strip_html | number_of_words | append: '.0' | divided_by:180 %}
+		            {% endif %}
 
-<main class="content" role="main">
-    <article class="post">
-        <!-- Everything inside the #post tags pulls data from the post -->
+                    <header class="post-header">
+                    {% if page.link %}
+                        <h1 class="post-title text-center hyper lighter"><a href="{{ page.link }}" data-toggle="tooltip" title="Go to {{ page.link }}" style="color: #fff; background-color: #45ADA8; border-radius: 4px; padding: 10px">{{ page.title }} <span class="link-arrow">&rarr;</span></a></h1>
+                    {% else %}
+                        <h1 class="post-title text-center hyper lighter bordered-bottom">{{ page.title }}</h1>
+                    {% endif %}
+                        <div class="post-info text-center small">
+                        {% if page.modified %}
+                            Last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}" itemprop="dateModified"> {{ page.modified | date: "%d %b %Y" }} </time>
+                        {% endif %}
 
-        <header class="post-header">
-            <h1 class="post-title">{{ page.title }}</h1>
-        </header>
+                        {% if site.readtime %}
+                            &nbsp; <span class="post-tags"> <i class="fa fa-clock-o"></i> &nbsp; 
+                            {% if readtime > 1 and readtime < 1.5 %}
+                                1 minute read
+                            {% endif %}
+                            {% if readtime > 1.5 %} 
+                                <span class="time"> {{ readtime }} </span> minutes read 
+                            {% endif %} 
+                            {% if readtime < 1 %} 
+                                Less than 1 minute read
+                            {% endif %}
+                            </span> 
+                        {% endif %}
+                        </div>
+                    </header>
 
-        <section class="post-content">
-            {{ content }}
-        </section>
+                    <div class="page-body" itemprop="description">
+                        {{ content }}
+                    </div>
+                    
+                </article>
+            </div>
+        </div>
+    </div>
 
-    </article>
-</main>
-<!-- /post -->
+    {% include footer.html %}
+
+    {% include scripts.html %}  
+</body>
+</html>
