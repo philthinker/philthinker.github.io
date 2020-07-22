@@ -154,6 +154,7 @@ we define a **unit twist** to be a twist such that either $\|\omega\|=1$, or $\o
 
 **Chasles Theorem**: Every rigid body motion can be realized by a rotation about an axis combined with a translation parallel to that axis.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VV0Vun8iX80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ----------
 
