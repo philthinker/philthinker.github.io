@@ -15,6 +15,8 @@ Thanks Cameron Davidson-Pilon for the great work of *Bayesian Methods for Hacker
 
 [TOC]
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VV0Vun8iX80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Bayesian inference is simply updating your beliefs after considering new evidence.
 
 #Popular Probability Distribution
